@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mrkyel.example.mapper.BoardMapper">
+    <select id="getBoards" resultType="com.mrkyel.example.VO.BoardVO">
+        SELECT * FROM tb_board ORDER BY cast(board_id as unsigned);
+    </select>
+
+    <select id="getBoardsDt" resultType="com.mrkyel.example.VO.BoardVO">
+        SELECT * FROM tb_board where board_id = #{board_id}
+    </select>
+
+    <update id="saveBoard" parameterType="com.mrkyel.example.VO.BoardVO">
+        UPDATE tb_board SET
+        title = #{title},
+        context = #{context},
+        updatedt = #{updatedt}
+        where board_id = #{board_id}
+    </update>
+</mapper>
