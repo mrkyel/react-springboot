@@ -19,4 +19,27 @@
         updatedt = #{updatedt}
         where board_id = #{board_id}
     </update>
+
+    <delete id="deleteBoard">
+        DELETE FROM tb_board where board_id = #{board_id}
+    </delete>
+
+    <insert id="insertBoard">
+        INSERT INTO tb_board (
+            board_id,
+            user_id,
+            title,
+            context,
+            regDt,
+            updatedt
+        )
+        values (
+            #{board_id},
+            #{user_id},
+            #{title},
+            #{context},
+            #{regDt},
+            #{updatedt}
+        )
+    </insert>
 </mapper>

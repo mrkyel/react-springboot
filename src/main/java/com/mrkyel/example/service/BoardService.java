@@ -1,4 +1,4 @@
-package com.mrkyel.example.application;
+package com.mrkyel.example.service;
 
 import com.mrkyel.example.VO.BoardVO;
 import com.mrkyel.example.mapper.BoardMapper;
@@ -12,8 +12,11 @@ public interface BoardService {
     List<BoardVO> getBoards();
     BoardVO getBoardsDt(int board_id);
     int saveBoard(BoardVO saveObj);
+    int deleteBoard(int board_id);
+    int insertBoard(BoardVO saveObj);
 }
 
+@Transactional
 @Service
 class BoardServiceImpl implements BoardService {
     @Autowired
@@ -29,9 +32,18 @@ class BoardServiceImpl implements BoardService {
         return boardMapper.getBoardsDt(board_id);
     }
 
-    @Transactional
     @Override
     public int saveBoard(BoardVO saveObj) {
         return boardMapper.saveBoard(saveObj);
+    }
+
+    @Override
+    public int insertBoard(BoardVO saveObj) {
+        return boardMapper.insertBoard(saveObj);
+    }
+
+    @Override
+    public int deleteBoard(int board_id) {
+        return boardMapper.deleteBoard(board_id);
     }
 }

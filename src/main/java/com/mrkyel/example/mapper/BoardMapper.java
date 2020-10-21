@@ -10,4 +10,6 @@ public interface BoardMapper {
     List<BoardVO> getBoards();
     BoardVO getBoardsDt(int board_id);
     int saveBoard(BoardVO saveObj);
+    int deleteBoard(int board_id );
+    int insertBoard(BoardVO saveObj);
 }
